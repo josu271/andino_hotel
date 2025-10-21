@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class bottombarpublic extends StatelessWidget {
-  const bottombarpublic({super.key});
+class BottomBarPublic extends StatelessWidget {
+  const BottomBarPublic({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -17,5 +18,4 @@ class bottombarpublic extends StatelessWidget {
       ),
     );
   }
-
 }

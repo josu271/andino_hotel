@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "78907589016",
-    "project_id": "sullacorbetta-86407",
-    "storage_bucket": "sullacorbetta-86407.firebasestorage.app"
+    "project_number": "257150294839",
+    "project_id": "hotelandino-app",
+    "storage_bucket": "hotelandino-app.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:78907589016:android:fa066c499f8a66420a6bed",
+        "mobilesdk_app_id": "1:257150294839:android:0fdda347ab16ea19a918b2",
         "android_client_info": {
           "package_name": "com.example.flutter_application_1"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC6jkGdPyvqsEQcQo3G39hvxbOKsUq8YEo"
+          "current_key": "AIzaSyC2jTHQGdf4XGbUDat1W6t2z1vfuHol8bw"
         }
       ],
       "services": {
