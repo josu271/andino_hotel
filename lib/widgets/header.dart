@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 
-class Header extends StatelessWidget implements PreferredSizeWidget {
-  final String nombre;
-
-  const Header({super.key, required this.nombre});
-
-  @override
-  Size get preferredSize => const Size.fromHeight(60);
+class Header extends StatelessWidget {
+  const Header({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(nombre, style: const TextStyle(fontWeight: FontWeight.bold)),
+      backgroundColor: const Color(0xFF8B4513),
+      title: const Text(
+        "HOTEL ANDINO",
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          letterSpacing: 2.0,
+        ),
+      ),
       centerTitle: true,
     );
   }
