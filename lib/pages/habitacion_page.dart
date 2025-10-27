@@ -22,7 +22,40 @@ class HabitacionPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Habitaciones Andinas"),
         backgroundColor: Colors.brown[700],
+        actions: [
+          Stack(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.shopping_cart),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/carrito');
+                },
+              ),
+              if (carrito.items.isNotEmpty)
+                Positioned(
+                  right: 4,
+                  top: 4,
+                  child: Container(
+                    padding: const EdgeInsets.all(4),
+                    decoration: const BoxDecoration(
+                      color: Colors.red,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Text(
+                      carrito.items.length.toString(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ],
       ),
+      // 👇 Aquí está el body que faltaba
       body: ListView.builder(
         itemCount: habitaciones.length,
         itemBuilder: (context, index) {

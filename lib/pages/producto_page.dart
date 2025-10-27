@@ -22,7 +22,41 @@ class ProductoPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Productos Andinos"),
         backgroundColor: Colors.brown[700],
+        actions: [
+          Stack(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.shopping_cart),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/carrito');
+                },
+              ),
+              if (carrito.items.isNotEmpty)
+                Positioned(
+                  right: 4,
+                  top: 4,
+                  child: Container(
+                    padding: const EdgeInsets.all(4),
+                    decoration: const BoxDecoration(
+                      color: Colors.red,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Text(
+                      carrito.items.length.toString(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ],
       ),
+
+      // 👇 Aquí está el body que faltaba
       body: ListView.builder(
         itemCount: productos.length,
         itemBuilder: (context, index) {
@@ -36,7 +70,15 @@ class ProductoPage extends StatelessWidget {
               subtitle: Text("S/ ${producto.precio.toStringAsFixed(2)}"),
               trailing: IconButton(
                 icon: const Icon(Icons.add_shopping_cart, color: Colors.green),
-                onPressed: () => carrito.agregarItem(producto),
+                onPressed: () {
+                  carrito.agregarItem(producto);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('${producto.nombre} agregado al carrito 🛒'),
+                      duration: const Duration(seconds: 1),
+                    ),
+                  );
+                },
               ),
             ),
           );

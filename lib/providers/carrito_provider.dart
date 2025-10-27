@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../models/producto.dart';
-import '../models/habitacion.dart';
 
-class CarritoProvider extends ChangeNotifier {
-  final List<dynamic> _items = []; // mezcla productos y habitaciones
+class CarritoProvider with ChangeNotifier {
+  final List<dynamic> _items = [];
 
   List<dynamic> get items => _items;
+
+  double get total => _items.fold(0, (sum, item) => sum + item.precio);
 
   void agregarItem(dynamic item) {
     _items.add(item);
@@ -15,10 +15,6 @@ class CarritoProvider extends ChangeNotifier {
   void eliminarItem(dynamic item) {
     _items.remove(item);
     notifyListeners();
-  }
-
-  double get total {
-    return _items.fold(0, (sum, item) => sum + item.precio);
   }
 
   void limpiar() {

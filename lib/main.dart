@@ -8,11 +8,19 @@ import 'pages/habitacion_page.dart';
 import 'pages/producto_page.dart';
 import 'pages/administracion_page.dart';
 import 'pages/perfil_page.dart';
+import 'pages/carrito_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CarritoProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -31,6 +39,9 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Roboto',
         ),
         home: const HomeScreen(),
+        routes: {
+        '/carrito': (context) => const CarritoPage(), // 👈 aquí defines la ruta
+      },
       ),
     );
   }
